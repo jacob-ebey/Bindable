@@ -2,12 +2,13 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
 	<metadata>
 		<id>ComicSansTheFont.Bindable</id>
+		<version>0.0.1</version>
 		<title>Bindable</title>
 		<description>Binding manager and interfaces for adding bindings to existing UI frameworks.</description>
 		<authors>Jacob Ebey</authors>
 		<owners>Jacob Ebey</owners>
-		<licenseUrl>https://github.com/jacob-ebey/Bindable/blob/master/LICENSE.txt</licenseUrl>
-		<iconUrl>https://github.com/jacob-ebey/Bindable/blob/master/Icon.png</iconUrl>
+		<licenseUrl>https://raw.githubusercontent.com/jacob-ebey/Bindable/master/LICENSE.txt</licenseUrl>
+		<iconUrl>https://raw.githubusercontent.com/jacob-ebey/Bindable/master/Icon.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>
 			Adding data-binding to UI frameworks.
@@ -16,13 +17,16 @@
 	</metadata>
 	<files>
 		<!-- Core -->
-		<file src="Bindable.Core\bin\Release\Bindable.Core.dll"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+Xamarin.iOS10\Bindable.Core.dll" />
-		<file src="Bindable.Core\bin\Release\Bindable.Core.dll"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+Xamarin.iOS10\Bindable.Core.xml" />
-		<file src="Bindable.Core\bin\Release\Bindable.Core.dll"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+Xamarin.iOS10\Bindable.Core.pdb" />
+		<file src="Bindable.Core\bin\Release\Bindable.Core.dll"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Bindable.Core.dll" />
+		<file src="Bindable.Core\bin\Release\Bindable.Core.xml"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Bindable.Core.xml" />
+		<file src="Bindable.Core\bin\Release\Bindable.Core.pdb"  target="lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Bindable.Core.pdb" />
 
 		<!-- Android -->
+		<file src="Bindable.Droid\bin\Release\Bindable.Core.dll"  target="lib\MonoAndroid10\Bindable.Core.dll" />
+		<file src="Bindable.Droid\bin\Release\Bindable.Core.xml"  target="lib\MonoAndroid10\Bindable.Core.xml" />
+		<file src="Bindable.Droid\bin\Release\Bindable.Core.pdb"  target="lib\MonoAndroid10\Bindable.Core.pdb" />
 		<file src="Bindable.Droid\bin\Release\Bindable.Droid.dll"  target="lib\MonoAndroid10\Bindable.Droid.dll" />
-		<file src="Bindable.Droid\bin\Release\Bindable.Droid.dll"  target="lib\MonoAndroid10\Bindable.Droid.xml" />
-		<file src="Bindable.Droid\bin\Release\Bindable.Droid.dll"  target="lib\MonoAndroid10\Bindable.Droid.pdb" />
+		<file src="Bindable.Droid\bin\Release\Bindable.Droid.xml"  target="lib\MonoAndroid10\Bindable.Droid.xml" />
+		<file src="Bindable.Droid\bin\Release\Bindable.Droid.pdb"  target="lib\MonoAndroid10\Bindable.Droid.pdb" />
 	</files>
 </package>

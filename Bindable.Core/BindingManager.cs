@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 
 namespace Bindable
@@ -17,7 +18,7 @@ namespace Bindable
 
         readonly Dictionary<BindableProperty<TOwner>, BindingInfo> bindingInfoCache = new Dictionary<BindableProperty<TOwner>, BindingInfo>();
         readonly Dictionary<string, List<BindableProperty<TOwner>>> bindingPropertyCache = new Dictionary<string, List<BindableProperty<TOwner>>>();
-        
+
         /// <summary>
         /// Creates a new instance.
         /// </summary>
@@ -71,20 +72,22 @@ namespace Bindable
 
         private void UpdateBindings()
         {
+            IEnumerable<BindableProperty<TOwner>> keys = Enumerable.Empty<BindableProperty<TOwner>>();
+
             lock (syncRoot)
+                keys = bindingInfoCache.Keys.ToArray();
+
+            foreach (var key in keys)
             {
-                foreach (var key in bindingInfoCache.Keys)
-                {
-                    var bindingInfo = bindingInfoCache[key];
-                    UpdateBinding(key, bindingInfo.SourcePropertyName, bindingInfo.Converter);
-                    DataContextPropertyChanged(bindableObject.DataContext, new PropertyChangedEventArgs(bindingInfo.SourcePropertyName));
-                }
+                var bindingInfo = bindingInfoCache[key];
+                UpdateBinding(key, bindingInfo.SourcePropertyName, bindingInfo.Converter);
+                DataContextPropertyChanged(bindableObject.DataContext, new PropertyChangedEventArgs(bindingInfo.SourcePropertyName));
             }
         }
 
         private void DataContextChanged(object sender, EventArgs e)
         {
-            var notifyPropertyChanged = bindableObject as INotifyPropertyChanged;
+            var notifyPropertyChanged = bindableObject.DataContext as INotifyPropertyChanged;
             if (notifyPropertyChanged != null)
                 notifyPropertyChanged.PropertyChanged += DataContextPropertyChanged;
 
@@ -93,7 +96,7 @@ namespace Bindable
 
         private void DataContextChanging(object sender, EventArgs e)
         {
-            var notifyPropertyChanged = bindableObject as INotifyPropertyChanged;
+            var notifyPropertyChanged = bindableObject.DataContext as INotifyPropertyChanged;
             if (notifyPropertyChanged != null)
                 notifyPropertyChanged.PropertyChanged -= DataContextPropertyChanged;
         }
