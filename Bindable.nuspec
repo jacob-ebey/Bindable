@@ -7,7 +7,8 @@
 		<description>Binding manager and interfaces for adding bindings to existing UI frameworks.</description>
 		<authors>Jacob Ebey</authors>
 		<owners>Jacob Ebey</owners>
-		<licenseUrl>https://raw.githubusercontent.com/jacob-ebey/Bindable/master/LICENSE.txt</licenseUrl>
+		<projectUrl>https://github.com/jacob-ebey/Bindable</projectUrl>
+		<licenseUrl>https://raw.githubusercontent.com/jacob-ebey/Bindable/master/ LICENSE.txt</licenseUrl>
 		<iconUrl>https://raw.githubusercontent.com/jacob-ebey/Bindable/master/Icon.png</iconUrl>
 		<requireLicenseAcceptance>false</requireLicenseAcceptance>
 		<summary>
